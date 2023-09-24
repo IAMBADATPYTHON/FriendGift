@@ -1,0 +1,38 @@
+from tkinter import *
+import random
+root=Tk()
+
+def backround():
+    rand = random.randint(1,7)
+    if rand == 1:
+        root.configure(bg='#FF2D00')
+    elif rand == 2:
+        root.configure(bg='#34F600')
+    elif rand == 3:
+        root.configure(bg='#6DEC15')
+    elif rand == 4:
+        root.configure(bg='#0AF4E6')
+    elif rand == 5:
+        root.configure(bg='#0070FF')
+    elif rand == 6:
+        root.configure(bg='#C500FF')
+    elif rand == 7:
+        root.configure(bg='#000000')
+    else:
+        root.configure(bg='#FF00BD')
+        
+
+HP = Label(root, text='Happy Birthday Ivan', fg='white',bg='black')
+HP.place(x=50, y=175)
+Font_tuple = ('Lexend', 50, 'bold')
+HP.configure(font=Font_tuple)
+
+def loop():
+    backround()
+    root.after(50,loop)
+
+root.after(50, loop)
+root.configure(bg='black')
+root.title('Ivans gift')
+root.geometry('750x500')
+root.mainloop()
